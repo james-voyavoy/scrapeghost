@@ -125,6 +125,7 @@ class SchemaScraper(OpenAiCall):
 
         sr.auto_split_length = self.auto_split_length
         if self.auto_split_length:
+            print(f"LENGTH: {self.auto_split_length}")
             # if auto_split_length is set, split the tags into chunks and then recombine
             chunks = _chunk_tags(tags, self.auto_split_length, model=self.models[0])
             # Note: this will not work when the postprocessor is expecting

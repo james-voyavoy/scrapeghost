@@ -23,7 +23,6 @@ class SchemaScraper(OpenAiCall):
         self,
         schema: dict | str | list,
         extra_preprocessors: list | None = None,
-        *,
         auto_split_length: int = 0,
         extra_instructions: list[str] | None = None,
         postprocessors: list[Postprocessor] | None = None,

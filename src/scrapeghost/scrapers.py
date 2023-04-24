@@ -124,10 +124,11 @@ class SchemaScraper(OpenAiCall):
         tags = self._apply_preprocessors(sr.parsed_html, extra_preprocessors or [])
 
         sr.auto_split_length = self.auto_split_length
-        if self.auto_split_length:
-            print(f"LENGTH: {self.auto_split_length}")
+        if self.auto_split_length:}")
             # if auto_split_length is set, split the tags into chunks and then recombine
             chunks = _chunk_tags(tags, self.auto_split_length, model=self.models[0])
+            print(chunks)
+            print([len(chunk) for chunk in chunks])
             # Note: this will not work when the postprocessor is expecting
             # ScrapedResponse (like HallucinationChecker)
             all_responses = [self.request(chunk) for chunk in chunks]
